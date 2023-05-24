@@ -1,0 +1,17 @@
+.single-item h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #151515;
+}
+.single-item p {
+  color: #737373;
+}
+.single-item img {
+  height: 104px;
+  width: 118px;
+  border-radius: 0px 200px 200px 200px;
+}
+.price p {
+  color: #bb8506;
+  font-size: 20px;
+}

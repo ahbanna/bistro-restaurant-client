@@ -1,0 +1,17 @@
+.featured-area {
+  background-image: url(../../../assets/home/featured.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.btn.btn-outline.read-more-btn {
+  /* border: 2px solid #fff; */
+  border: #fff;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.featured-area .section-title h3 {
+  color: #fff;
+}
