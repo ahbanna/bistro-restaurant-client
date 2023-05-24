@@ -1,3 +1,4 @@
+import "./Navbar.css";
 const NavBar = () => {
   const menuItems = (
     <>
@@ -32,8 +33,8 @@ const NavBar = () => {
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-base-100">
+    <div className="header-area">
+      <div className="navbar z-10 text-white fixed bg-opacity-30 bg-black w-full">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -1,0 +1,20 @@
+.section-title {
+  text-align: center;
+}
+.section-title p {
+  font-size: 20px;
+  font-style: italic;
+  color: #d99904;
+}
+.section-title h3 {
+  font-size: 40px;
+  color: #151515;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-top: 4px solid #e8e8e8;
+  border-bottom: 4px solid #e8e8e8;
+  /* display: inline-block; */
+  width: 400px;
+  padding: 5px 0;
+  margin: 10px auto;
+}
