@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 const NavBar = () => {
   const menuItems = (
     <>
       <li>
-        <a>Item 1</a>
+        <Link to="/">Home</Link>
       </li>
-      <li tabIndex={0}>
+      <li>
+        <Link to="/menu">My Menu</Link>
+      </li>
+      {/* <li tabIndex={0}>
         <a className="justify-between">
           Parent
           <svg
@@ -26,7 +30,7 @@ const NavBar = () => {
             <a>Submenu 2</a>
           </li>
         </ul>
-      </li>
+      </li> */}
       <li>
         <a>Item 3</a>
       </li>
