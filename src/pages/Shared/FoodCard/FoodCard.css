@@ -1,0 +1,28 @@
+.food-single-card .card-price {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.food-single-card .card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.food-single-card button {
+  margin: 0 auto;
+  background: #e8e8e8;
+  color: #bb8506;
+  border-bottom: 2px solid #bb8506;
+  font-weight: 700;
+  margin-top: 10px;
+}

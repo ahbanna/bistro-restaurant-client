@@ -1,0 +1,10 @@
+.single-category .order-now-btn {
+  border-bottom: 2px solid #000;
+  color: #fff;
+  color: #000;
+  display: block;
+  margin: 0 auto;
+}
+.single-category .order-now-btn:hover {
+  color: #fff;
+}

@@ -27,7 +27,7 @@ const Featured = () => {
               consequuntur omnis ullam maxime tenetur.
             </p>
             {/* <button className="btn btn-outline border-0 border-b-4"> */}
-            <button className="btn btn-outline read-more-btn">Read More</button>
+            <button className="btn btn-outline order-now-btn">Order Now</button>
           </div>
         </div>
       </div>
