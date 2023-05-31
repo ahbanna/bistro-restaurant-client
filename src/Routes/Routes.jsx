@@ -18,15 +18,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "menu",
-        element: <Menu></Menu>,
+        element: (
+          // <PrivateRoute>
+          //   <Menu></Menu>
+          // </PrivateRoute>
+          <Menu></Menu>
+        ),
       },
       {
         path: "order",
-        element: (
-          <PrivateRoute>
-            <Order></Order>
-          </PrivateRoute>
-        ),
+        element: <Order></Order>,
       },
       {
         path: "login",
