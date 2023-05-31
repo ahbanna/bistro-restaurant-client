@@ -1,11 +1,17 @@
 import React, { useContext } from "react";
 import loginImg from "../../assets/others/login.png";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  // navigate starts.it use when user successfully login go to desire page
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  // navigate end
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,6 +22,16 @@ const Login = () => {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      Swal.fire({
+        title: "Login Successfully",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      navigate(from, { replace: true });
     });
   };
   return (
@@ -52,7 +68,7 @@ const Login = () => {
                   className="input input-bordered"
                 />
               </div>
-              // TODO: have to apply captcha
+              {/*  TODO: have to apply captcha*/}
               <div className="form-control mt-6">
                 <input
                   type="submit"
