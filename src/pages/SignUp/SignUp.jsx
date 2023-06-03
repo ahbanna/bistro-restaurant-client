@@ -1,3 +1,60 @@
+// import React, { useContext } from "react";
+// import loginImg from "../../assets/others/login.png";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { useForm } from "react-hook-form";
+// import { AuthContext } from "../../providers/AuthProvider";
+// import useTitle from "../../hooks/useTitle";
+// import Swal from "sweetalert2";
+
+// const SignUp = () => {
+//   useTitle("Sign Up");
+//   const { createUser, updateUserProfile } = useContext(AuthContext);
+//   // navigate starts.it use when user successfully login go to desire page
+//   const navigate = useNavigate();
+//   // navigate end
+//   // react hook form starts
+//   const {
+//     register,
+//     handleSubmit,
+//     formState: { errors },
+//   } = useForm();
+//   const onSubmit = (data) => {
+//     console.log(data);
+//     createUser(data.email, data.password).then((result) => {
+//       const loggedUser = result.user;
+//       console.log(loggedUser);
+//       updateUserProfile(data.name, data.photoURL)
+//         .then(() => {
+//           const saveUser = { name: data.name, email: data.email };
+//           fetch("http://localhost:5000/users", {
+//             method: "POST",
+//             headers: {
+//               "content-type": "application/json",
+//             },
+//             body: JSON.stringify(saveUser),
+//           })
+//             .then((res) => res.json())
+//             .then((data) => {
+//               if (data.insertedId) {
+//                 reset();
+//                 Swal.fire({
+//                   title: "Successfully sign up with Bistro Restaurant",
+//                   showClass: {
+//                     popup: "animate__animated animate__fadeInDown",
+//                   },
+//                   hideClass: {
+//                     popup: "animate__animated animate__fadeOutUp",
+//                   },
+//                 });
+//                 navigate("/");
+//               }
+//             });
+//         })
+//         .catch((error) => console.log(error));
+//     });
+//   };
+//   // react hook form end
+
 import React, { useContext } from "react";
 import loginImg from "../../assets/others/login.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -5,6 +62,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   useTitle("Sign Up");
@@ -17,6 +75,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
@@ -25,22 +84,32 @@ const SignUp = () => {
       console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          console.log("user profile info updated");
-          Swal.fire({
-            title: "Successfully sign up with Bistro Restaurant",
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
+          const saveUser = { name: data.name, email: data.email };
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
             },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-          });
-          navigate("/");
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  title: "Successfully sign up with Bistro Restaurant",
+                  icon: "success",
+                }).then(() => {
+                  navigate("/");
+                });
+              }
+            });
         })
         .catch((error) => console.log(error));
     });
   };
   // react hook form end
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -151,6 +220,7 @@ const SignUp = () => {
                 <Link to="/login"> Go to log in</Link>
               </span>
             </div>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
